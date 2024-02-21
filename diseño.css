@@ -1,16 +1,20 @@
 #Input{
     width: 250px;
   padding: 15px 12px;
-  margin-bottom: 5px;
   border: 1px solid #e5e5e5;
   border-bottom: 2px solid #ddd;
-  background: #bb7a7a;
+  background: #c2acac;
   color: #555;
+}
 
+#input-div{
+    margin-top: 5%;
+    text-align: center
 }
 #titulo{
+    
     width: 400px;
   margin: 0 auto;
   text-align: center;
-  color: aquamarine;
+  color: rgb(92, 151, 132);
 }
