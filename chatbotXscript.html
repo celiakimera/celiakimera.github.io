@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+
+
+    <script>
+
+      window.kimeraConfig = {
+        id: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYTIzNTM5MzgtMDg5ZS0xMWYwLTliMjctMDI0MmFjMTEwMDA1IiwicGVybWlzc2lvbnMiOnsiZGIiOiJyZWFkIiwidXNlcl9jb25maWd1cmF0aW9uIjoicmVhZCJ9LCJleHAiOjE3NzM5MTc3ODZ9.HDFsST1lKZDhoUucy6qvfWbuBPpTIrj7N2IBD65BNAc",
+      };
+      window.kimeraChatbotConfig = {
+        id: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYTIzNTM5MzgtMDg5ZS0xMWYwLTliMjctMDI0MmFjMTEwMDA1IiwicGVybWlzc2lvbnMiOnsiZGIiOiJyZWFkIiwidXNlcl9jb25maWd1cmF0aW9uIjoicmVhZCJ9LCJleHAiOjE3NzM5MTc3ODZ9.HDFsST1lKZDhoUucy6qvfWbuBPpTIrj7N2IBD65BNAc",
+      };
+    </script>
+    <script src="https://kimera-chatbotxscript.s3.eu-west-1.amazonaws.com/dev/km-installation-script.min.js"></script>
+    <script src="https://kimera-chatbotxscript.s3.eu-west-1.amazonaws.com/dev/km-chatbot-installation-script.min.js"></script>
+  </head>
+
+  <body>
+    <style>
+      body {
+        background-color: white;
+      }
+    </style>
+
+    <div>
+      <h1 id="titulo">CHATBOT X SKIN - TESTING</h1>
+    </div>
+    <div>
+      <button
+        class="header__search penguin header-search-element js-search-bar"
+      >
+        START
+      </button>
+      <button
+        class="nav-item"
+        id="clear-config"
+        onclick="sessionStorage.removeItem('kmSearchConfig'); sessionStorage.removeItem('kmChatbotConfig'); this.textContent='Config Cleared!'; window.history.replaceState({}, '', window.location.pathname); location.reload();"
+      >
+        Clear Search Config
+      </button>
+    </div>
+    <div
+      id="wpb_wrapper"
+      class="swiper-wrapper page-footer km-carousel-3 recomendaro"
+    ></div>
+    <div
+      id="wpb_wrapper"
+      class="swiper-wrapper page-footer km-carousel-1"
+    ></div>
+    <div
+      id="wpb_wrapper"
+      class="swiper-wrapper page-footer km-carousel-2"
+    ></div>
+  </body>
+  <!-- <script src="km-script.js"></script> -->
+</html>
