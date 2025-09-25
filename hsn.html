@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+
+
+  <script>
+    window.kimeraUnifiedConfig = {
+      id: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYTgxZjUyMWEtMDNkNi0xMWYwLWIxYmUtMDI0MmFjMTEwMDA1IiwicGVybWlzc2lvbnMiOnsiZGIiOiJyZWFkIiwidXNlcl9jb25maWd1cmF0aW9uIjoicmVhZCJ9LCJleHAiOjE3NzMzOTIwOTJ9.JXI6hw3sdwgIpGv2UT7lTqMhg7nqUyMedPW2V-00BLI',
+      search: true,
+      carousel: true,
+      chatbot: true
+    };
+    </script>
+  <script src="https://cdn.kimeratechnologies.com//dev/km-load.min.js"></script>
+  </head>
+
+  <body>
+    <style>
+      body {
+        background-color: white;
+      }
+    </style>
+
+    <div>
+      <h1 id="titulo">KIBUC - TESTING</h1>
+    </div>
+    <div>
+      <button
+        class="header__search penguin header-search-element js-search-bar kimera"
+      >
+        START
+      </button>
+      <button
+        class="nav-item"
+        id="clear-config"
+        onclick="sessionStorage.removeItem('kmSearchConfig'); sessionStorage.removeItem('kmChatbotConfig'); this.textContent='Config Cleared!'; window.history.replaceState({}, '', window.location.pathname); location.reload();"
+      >
+        Clear Search Config
+      </button>
+    </div>
+    <div
+      id="wpb_wrapper"
+      class="swiper-wrapper page-footer km-carousel-3 recomendaro"
+    ></div>
+    <div
+      id="wpb_wrapper"
+      class="swiper-wrapper page-footer km-carousel-1"
+    ></div>
+    <div
+      id="wpb_wrapper"
+      class="swiper-wrapper page-footer km-carousel-2"
+    ></div>
+  </body>
+  <!-- <script src="km-script.js"></script> -->
+</html>
