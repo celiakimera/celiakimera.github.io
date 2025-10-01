@@ -1,10 +1,12 @@
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta charset="UTF-8" />
-
-
-  <script>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSNstore - Tienda de Suplementos Deportivos</title>
+    
+    <!-- KIMERA TECHNOLOGIES INTEGRATION -->
+    <script>
     window.kimeraUnifiedConfig = {
       id: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYTgxZjUyMWEtMDNkNi0xMWYwLWIxYmUtMDI0MmFjMTEwMDA1IiwicGVybWlzc2lvbnMiOnsiZGIiOiJyZWFkIiwidXNlcl9jb25maWd1cmF0aW9uIjoicmVhZCJ9LCJleHAiOjE3NzMzOTIwOTJ9.JXI6hw3sdwgIpGv2UT7lTqMhg7nqUyMedPW2V-00BLI',
       search: true,
@@ -12,45 +14,413 @@
       chatbot: true
     };
     </script>
-  <script src="https://cdn.kimeratechnologies.com/dev/km-load.min.js"></script>
-  </head>
-
-  <body>
+    <script src="https://cdn.kimeratechnologies.com/dev/km-load.min.js"></script>
+    
     <style>
-      body {
-        background-color: white;
-      }
-    </style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <div>
-      <h1 id="titulo">KIBUC - TESTING</h1>
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff;
+        }
+
+        /* Demo Badge */
+        .demo-badge {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 13px;
+            z-index: 10000;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: #f5f5f5;
+            padding: 8px 20px;
+            font-size: 12px;
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            padding: 15px 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .logo {
+            font-size: 36px;
+            font-weight: bold;
+            color: #ff6600;
+        }
+
+        .search-container {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 14px;
+        }
+
+        .trustpilot {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 12px;
+        }
+
+        .stars {
+            color: #00b67a;
+        }
+
+        .cart {
+            position: relative;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #ff6600;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 0 20px;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .nav-container a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            padding: 15px 0;
+            display: block;
+            transition: color 0.3s;
+        }
+
+        .nav-container a:hover {
+            color: #ff6600;
+        }
+
+        .nav-container a.promo {
+            color: #ff6600;
+        }
+
+        /* Promo Banner */
+        .promo-banner {
+            background: #000;
+            color: white;
+            text-align: center;
+            padding: 12px 20px;
+            font-size: 14px;
+        }
+
+        .promo-banner .highlight {
+            color: #ffcc00;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero-text {
+            color: white;
+            max-width: 600px;
+        }
+
+        .hero-text h1 {
+            font-size: 56px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero-text h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .discount-box {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .discount-number {
+            font-size: 72px;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .discount-text {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+
+        .hero-note {
+            font-size: 14px;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .hero-products {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .product-image {
+            width: 200px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+        }
+
+        /* Carousel dots */
+        .carousel-dots {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 40px;
+            height: 4px;
+            background: #ddd;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background: #ff6600;
+        }
+
+        /* Tabs */
+        .tabs {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .tab-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            border-bottom: 2px solid #e0e0e0;
+            margin-bottom: 40px;
+        }
+
+        .tab-button {
+            padding: 15px 0;
+            font-size: 16px;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .tab-button.active {
+            color: #ff6600;
+            border-bottom-color: #ff6600;
+        }
+
+        /* Product Cards */
+        .product-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            background: #f5f5f5;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-wrap: wrap;
+            }
+            
+            .hero-content {
+                flex-direction: column;
+            }
+            
+            .hero-text h1 {
+                font-size: 36px;
+            }
+            
+            .nav-container {
+                overflow-x: auto;
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-badge">DEMO CON KIMERA</div>
+
+    <div class="top-bar">
+        Envío gratuito a partir de 29,99€ | Contacta con nosotros aquí | ES - EUR
     </div>
-    <div>
-      <button
-        class="header__search penguin header-search-element js-search-bar kimera"
-      >
-        START
-      </button>
-      <button
-        class="nav-item"
-        id="clear-config"
-        onclick="sessionStorage.removeItem('kmSearchConfig'); sessionStorage.removeItem('kmChatbotConfig'); this.textContent='Config Cleared!'; window.history.replaceState({}, '', window.location.pathname); location.reload();"
-      >
-        Clear Search Config
-      </button>
+
+    <header>
+        <div class="header-content">
+            <div class="logo">HSN</div>
+            
+            <div class="search-container">
+                <input type="text" placeholder="Buscar por: Producto, Objetivo, Ingrediente...">
+            </div>
+
+            <div class="trustpilot">
+                <span>⭐</span>
+                <div>
+                    <div><strong>Excelente</strong> - Trustpilot</div>
+                    <div class="stars">★★★★★ 4.60/5.00</div>
+                </div>
+            </div>
+
+            <div class="cart">
+                🛒
+                <span class="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#">Nutrición Deportiva</a>
+            <a href="#">Salud y Bienestar</a>
+            <a href="#">Alimentación</a>
+            <a href="#">Accesorios</a>
+            <a href="#">Marcas</a>
+            <a href="#">Top Ventas</a>
+            <a href="#" class="promo">Promociones</a>
+            <a href="#">Novedades</a>
+            <a href="#">¿Eres nuevo?</a>
+        </div>
+    </nav>
+
+    <div class="promo-banner">
+        Hasta <span class="highlight">60% DTO</span> en Energéticos, Aminoácidos y Pre, Intra y Post Entreno | <span class="highlight">42% DTO Directo</span> en el Resto de HSN
     </div>
-    <div
-      id="wpb_wrapper"
-      class="swiper-wrapper page-footer km-carousel-3 recomendaro"
-    ></div>
-    <div
-      id="wpb_wrapper"
-      class="swiper-wrapper page-footer km-carousel-1"
-    ></div>
-    <div
-      id="wpb_wrapper"
-      class="swiper-wrapper page-footer km-carousel-2"
-    ></div>
-  </body>
-  <!-- <script src="km-script.js"></script> -->
+
+    <section class="hero">
+        <img src="https://www.hsnstore.com/media/interaktingslider/interaktingslider_es-01-miercoles-60energericos-10-2025_12.webp" alt="HSN Promotion" style="width: 100%; display: block; max-width: 100%;">
+    </section>
+
+    <div class="carousel-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+
+    <section class="tabs">
+        <div class="tab-buttons">
+            <div class="tab-button active">ALIMENTACIÓN SALUDABLE</div>
+            <div class="tab-button">NUTRICIÓN DEPORTIVA</div>
+            <div class="tab-button">SALUD Y BIENESTAR</div>
+        </div>
+
+        <div class="product-section">
+            <div class="product-card">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%23f0f0f0' width='300' height='300'/%3E%3Ctext x='50%25' y='50%25' font-size='60' text-anchor='middle'%3E🍋%3C/text%3E%3C/svg%3E" alt="Product">
+            </div>
+            <div class="product-card">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%23f0f0f0' width='300' height='300'/%3E%3Ctext x='50%25' y='50%25' font-size='60' text-anchor='middle'%3E🥜%3C/text%3E%3C/svg%3E" alt="Product">
+            </div>
+            <div class="product-card">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%23f0f0f0' width='300' height='300'/%3E%3Ctext x='50%25' y='50%25' font-size='60' text-anchor='middle'%3E🥤%3C/text%3E%3C/svg%3E" alt="Product">
+            </div>
+        </div>
+    </section>
+</body>
 </html>
