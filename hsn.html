@@ -411,37 +411,7 @@ HTML
         }
       }
     </style>
-    <script>
-  const REFRESH_DELAY_MS = 1500; // 1.5 seconds
-        const blocker = document.getElementById('page-blocker');
-        const body = document.body;
-
-        // Check for the first visit in the session.
-        if (!sessionStorage.getItem('reloaded')) {
-            // 1. Show the blocker immediately and apply the blur class.
-            if (blocker) {
-                blocker.style.display = 'flex'; // Show the blocker
-                body.classList.add('is-loading'); // Apply blur to body content
-            }
-
-            // 2. Set the session flag to prevent infinite loop.
-            sessionStorage.setItem('reloaded', 'true');
-            
-            // 3. Schedule the reload to run AFTER the 1500ms delay.
-            setTimeout(function() {
-                window.location.reload(); 
-            }, REFRESH_DELAY_MS);
-
-        } else {
-            // If the user has already been refreshed (or manually reloaded), 
-            // the blocker must be hidden immediately.
-            if (blocker) {
-                blocker.style.display = 'none';
-            }
-            // Remove the loading class immediately for a clean load.
-            body.classList.remove('is-loading');
-        } 
-    </script>
+ 
 </head>
 <body>
     <div id="page-blocker">
@@ -521,5 +491,22 @@ HTML
 
 
     </section>
+      <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const REFRESH_DELAY_MS = 1500;
+      const blocker = document.getElementById('page-blocker');
+      const body = document.body;
+
+      if (!sessionStorage.getItem('reloaded')) {
+        blocker.style.display = 'flex';
+        body.classList.add('is-loading');
+        sessionStorage.setItem('reloaded', 'true');
+        setTimeout(() => window.location.reload(), REFRESH_DELAY_MS);
+      } else {
+        blocker.style.display = 'none';
+        body.classList.remove('is-loading');
+      }
+    });
+  </script>
 </body>
 </html>
