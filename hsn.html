@@ -341,24 +341,20 @@
         }
       }
     </style>
-        <script>
+    <script>
         // Check if the page has already been reloaded in this session.
         if (!sessionStorage.getItem('reloaded')) {
-            // 1. Set the flag to true for the *next* (refreshed) load.
+            // If it's a new entry, set the flag immediately.
             sessionStorage.setItem('reloaded', 'true');
             
-            // 2. Perform a SOFT reload. This is faster and makes the flash less visible.
-            // A soft reload allows the browser to use cached resources.
+            // Perform a SOFT reload. This is the single, intended refresh.
             window.location.reload(); 
-            
-            // 3. Stop script execution immediately to prevent any further rendering 
-            // of the main content before the reload takes effect.
-            // throw new Error('Refresh initiated.'); // Optional but helps stop rendering
-        } else {
-            // If the flag IS set (i.e., this is the refreshed page), clear it 
-            // so the next *new* entry to the page will trigger the refresh again.
-            sessionStorage.removeItem('reloaded');
-        }
+        } 
+        
+        // **IMPORTANT:** No ELSE block here.
+        // If the item is already set, the script does nothing, 
+        // allowing the page to load normally and preventing the infinite loop.
+        // The item stays set until the browser tab is closed.
     </script>
 </head>
 <body>
