@@ -341,11 +341,25 @@
         }
       }
     </style>
-    <script>
-    window.onload = function() {
-        window.location.reload(true);
-    };
-</script>
+        <script>
+        // Check if the page has already been reloaded in this session.
+        if (!sessionStorage.getItem('reloaded')) {
+            // 1. Set the flag to true for the *next* (refreshed) load.
+            sessionStorage.setItem('reloaded', 'true');
+            
+            // 2. Perform a SOFT reload. This is faster and makes the flash less visible.
+            // A soft reload allows the browser to use cached resources.
+            window.location.reload(); 
+            
+            // 3. Stop script execution immediately to prevent any further rendering 
+            // of the main content before the reload takes effect.
+            // throw new Error('Refresh initiated.'); // Optional but helps stop rendering
+        } else {
+            // If the flag IS set (i.e., this is the refreshed page), clear it 
+            // so the next *new* entry to the page will trigger the refresh again.
+            sessionStorage.removeItem('reloaded');
+        }
+    </script>
 </head>
 <body>
     <div class="demo-badge">DEMO CON KIMERA</div>
