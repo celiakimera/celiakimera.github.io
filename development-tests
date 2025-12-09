@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <title>DEV - TESTING</title>
+
+    <script>
+      window.kimeraUnifiedConfig = {
+        id: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMDlmODMzNDQtYWE5ZS0xMWYwLWIzMGYtMDI0MmFjMTEwMDA1IiwicGVybWlzc2lvbnMiOnsiZGIiOiJyZWFkIiwidXNlcl9jb25maWd1cmF0aW9uIjoicmVhZCJ9LCJleHAiOjE3OTE3Mjk2MTl9.OJFINoh250Nvlm7hO_6eINxnU95xHMAM5Uo519AWZCU",
+        search: true,
+        carousel: false,
+        chatbot: false,
+      };
+    </script>
+    <script
+      async
+      src="https://cdn.kimeratechnologies.com/dev/km-load.min.js"
+    ></script>
+
+    <style>
+      /* General Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        color: #444;
+        margin-bottom: 20px;
+      }
+
+      .container {
+        text-align: center;
+        padding: 20px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 90%;
+        max-width: 400px;
+      }
+
+      .buttons {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 1rem;
+        font-weight: bold;
+        color: #fff;
+        background-color: #6a0dad; /* Purplish color */
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #4b0082; /* Darker purple */
+      }
+
+      button:active {
+        background-color: #3a0066; /* Even darker purple */
+      }
+
+      footer {
+        margin-top: 20px;
+        font-size: 0.9rem;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>DEVELOPMENT TESTS</h1>
+      <div class="buttons">
+        <button onclick="startTesting()" class="kimera">Start</button>
+      </div>
+      <footer>Kimera Technologies © 2025</footer>
+    </div>
+
+    <script>
+      function startTesting() {
+        alert("Testing started!");
+      }
+    </script>
+  </body>
+</html>
