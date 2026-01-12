@@ -6,14 +6,25 @@
     <title>PRE - TESTING</title>
 
     <script>
-      window.kimeraUnifiedConfig = {
-        id: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZGE5YmQ2ZTAtNzJhZS0xMWYwLWE2Y2UtMDI0MmFjMTEwMDAzIiwicGVybWlzc2lvbnMiOnsiZGIiOiJyZWFkIiwidXNlcl9jb25maWd1cmF0aW9uIjoicmVhZCJ9LCJleHAiOjE3ODU1Nzk1NzZ9.nNkT6g3DpholMLyb2_5taKIuM9wK7eLxqePHCinYqnI"
-      };
-    </script>
-    <script
-      async
-      src="https://cdn.kimeratechnologies.com/pre/km-load.min.js"
-    ></script>
+  // Get the lang attribute from the html tag
+  const htmlLang = document.documentElement.lang || 'es'; // default to 'es' if not set
+  
+  // Map languages to their corresponding IDs
+  const languageTokens = {
+    'es': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZWYzMjIxYjItYzZlMi0xMWYwLWFjYTctMDI0MmFjMTEwMDAzIiwicGVybWlzc2lvbnMiOnsiZGIiOiJyZWFkIiwidXNlcl9jb25maWd1cmF0aW9uIjoicmVhZCJ9LCJleHAiOjQ5MTczMzM4NDJ9.dOg4Oc2DHE_ZLe7YSLl_4sRV7E8QkYQ-JtjJugeJDZI',
+    'en': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNzA4YzA5YjItY2FlNC0xMWYwLWJjM2QtMDI0MmFjMTEwMDA0IiwicGVybWlzc2lvbnMiOnsiZGIiOiJyZWFkIiwidXNlcl9jb25maWd1cmF0aW9uIjoicmVhZCJ9LCJleHAiOjQ5MTc3NzQyOTN9._0t8bQKkmv9Wl-ONZ3C8Vd9HE7ut7t8If_NsOfz28Uk',
+    'fr': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMjdkYTg4NjgtY2FjZC0xMWYwLWFkODctMDI0MmFjMTEwMDA0IiwicGVybWlzc2lvbnMiOnsiZGIiOiJyZWFkIiwidXNlcl9jb25maWd1cmF0aW9uIjoicmVhZCJ9LCJleHAiOjQ5MTc3NjQyOTN9.jB5o7Oqcq0wsnwE1yPU3oD-Ca9UmE7ujYhZsM_ysdoM',
+    'de': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMDEwNWU1NDYtY2FkZS0xMWYwLWFkODctMDI0MmFjMTEwMDA0IiwicGVybWlzc2lvbnMiOnsiZGIiOiJyZWFkIiwidXNlcl9jb25maWd1cmF0aW9uIjoicmVhZCJ9LCJleHAiOjQ5MTc3NzE1Mjl9.NWLJUg9s5MbCm3sDHOfYF-utD8M4X5Gq54kMloryWfc',
+
+    // Add more languages as needed
+  };
+  
+  // Set the config with the appropriate token
+  window.kimeraUnifiedConfig = {
+    id: languageTokens[htmlLang] || languageTokens['es'] // fallback to Spanish if lang not found
+  };
+</script>
+<script async src="https://cdn.kimeratechnologies.com/pre/km-load.min.js"></script>
 
     <style>
       /* General Reset */
@@ -89,7 +100,7 @@
     <div class="container">
       <h1>DEVELOPMENT TESTS</h1>
       <div class="buttons">
-        <button onclick="startTesting()" class="kimera">Start</button>
+        <button onclick="startTesting()" class="kimera españa">Start</button>
       </div>
       <footer>Kimera Technologies © 2025</footer>
     </div>
