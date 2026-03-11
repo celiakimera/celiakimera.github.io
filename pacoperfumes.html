@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+  window.kimeraUnifiedConfig = {
+    id: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMWU4MjEyNzgtMTk3My0xMWYxLTljYWMtMDI0MmFjMTEwMDA1IiwicGVybWlzc2lvbnMiOnsiZGIiOiJyZWFkIiwidXNlcl9jb25maWd1cmF0aW9uIjoicmVhZCJ9LCJleHAiOjQ5MjY0MTE3NjR9.LNh9-fJ2L-mlAADd333qmxOHsoJftm3J23APfCVL4cU'
+  };
+  </script>
+  <script async src="https://cdn.kimeratechnologies.com/pre/km-load.min.js"></script>
+  <title>Paco Perfumerías</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Montserrat', sans-serif; background: #fff; color: #222; }
+
+    /* ── TOP PROMO BANNER ── */
+    .top-banner {
+      background: linear-gradient(90deg, #8b7fc7 0%, #a991d4 50%, #8b7fc7 100%);
+      color: #fff;
+      text-align: center;
+      padding: 10px 40px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .top-banner .close-btn {
+      position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
+      background: none; border: none; color: #fff; font-size: 18px; cursor: pointer; opacity: 0.8;
+    }
+    .top-banner .close-btn:hover { opacity: 1; }
+    .top-banner a { color: #fff; text-decoration: underline; }
+
+    /* ── INFO BAR ── */
+    .info-bar {
+      background: #1a8fa5;
+      color: #fff;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 10px 20px;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .info-bar span { display: flex; align-items: center; gap: 6px; }
+    .info-bar span::before { content: ''; display: inline-block; width: 1px; }
+
+    /* ── MAIN HEADER ── */
+    .main-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 32px;
+      border-bottom: 1px solid #eee;
+      gap: 16px;
+    }
+
+    /* Search bar with class 'paco' */
+    .paco {
+      display: flex;
+      align-items: center;
+      border: 1.5px solid #ddd;
+      border-radius: 6px;
+      overflow: hidden;
+      width: 260px;
+      background: #f7f7f7;
+      transition: border-color 0.2s;
+    }
+    .paco:focus-within { border-color: #1a8fa5; background: #fff; }
+    .paco input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      padding: 10px 14px;
+      font-size: 13px;
+      font-family: 'Montserrat', sans-serif;
+      color: #555;
+      outline: none;
+    }
+    .paco button {
+      background: none;
+      border: none;
+      padding: 0 14px;
+      cursor: pointer;
+      color: #555;
+      font-size: 17px;
+      transition: color 0.2s;
+    }
+    .paco button:hover { color: #1a8fa5; }
+
+    /* Logo */
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: #1a2e5a;
+      text-transform: uppercase;
+      white-space: nowrap;
+      user-select: none;
+      text-align: center;
+      flex: 1;
+    }
+    .logo .circles {
+      display: inline-block;
+      font-size: 22px;
+      vertical-align: middle;
+      margin-right: 2px;
+      letter-spacing: -4px;
+      color: #1a2e5a;
+    }
+
+    /* Right icons */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .btn-phone {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #1a8fa5;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 9px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      font-family: 'Montserrat', sans-serif;
+      cursor: pointer;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .btn-phone:hover { background: #147e91; }
+    .btn-phone svg { width: 20px; height: 20px; flex-shrink: 0; }
+    .header-link {
+      font-size: 12.5px;
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .header-link:hover { color: #1a8fa5; }
+    .icon-btn {
+      background: none; border: none; cursor: pointer;
+      font-size: 20px; color: #333; padding: 4px;
+      transition: color 0.2s;
+    }
+    .icon-btn:hover { color: #1a8fa5; }
+
+    /* ── NAV ── */
+    nav {
+      border-bottom: 2px solid #e0e0e0;
+      padding: 0 32px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      overflow-x: auto;
+    }
+    nav ul li a {
+      display: block;
+      padding: 14px 14px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      color: #222;
+      white-space: nowrap;
+      letter-spacing: 0.02em;
+      transition: color 0.15s;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+    }
+    nav ul li a:hover { color: #1a8fa5; border-bottom-color: #1a8fa5; }
+    nav ul li.flash a { color: #e05a00; font-weight: 800; }
+    nav ul li.flash-icon { font-size: 15px; }
+    nav ul li.bags a { color: #b06ab3; font-weight: 800; }
+    nav ul li.marcas a { font-weight: 800; color: #111; }
+    nav ul li.novedades a { color: #1a8fa5; }
+    nav ul li.promociones a { color: #e05a00; }
+
+    /* ── HERO BANNERS ── */
+    .hero-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin: 0;
+    }
+    .banner {
+      position: relative;
+      overflow: hidden;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      padding: 24px 32px;
+    }
+    .banner-boss {
+      background: linear-gradient(135deg, #c8bfb5 0%, #d9d0c8 60%, #e8e0d8 100%);
+    }
+    .banner-gucci {
+      background: linear-gradient(135deg, #2a1a0f 0%, #3d2410 50%, #5a3520 100%);
+    }
+    .banner-content { flex: 1; z-index: 2; }
+    .banner-discount {
+      font-size: 62px;
+      font-weight: 900;
+      color: #1a1a1a;
+      line-height: 1;
+      letter-spacing: -2px;
+    }
+    .banner-text {
+      font-size: 13px;
+      font-weight: 700;
+      color: #333;
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .banner-text .price-circle {
+      display: inline;
+      color: #cc2200;
+      text-decoration: line-through;
+    }
+    .banner-text .price-circle-wrap {
+      display: inline-block;
+      border: 2px solid #cc2200;
+      border-radius: 50%;
+      padding: 0 4px;
+      margin: 0 2px;
+    }
+    .banner-subtitle { font-size: 12px; font-weight: 700; color: #444; text-transform: uppercase; letter-spacing: 0.08em; }
+    .btn-buy {
+      display: inline-block;
+      background: #1a1a1a;
+      color: #fff;
+      padding: 11px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: background 0.2s, transform 0.15s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-buy:hover { background: #444; transform: translateY(-1px); }
+    .banner-img {
+      position: absolute;
+      right: 100px;
+      top: 0;
+      height: 100%;
+      object-fit: contain;
+      z-index: 1;
+    }
+    .banner-img-right {
+      right: 80px;
+    }
+    .btn-buy-wrap { margin-top: 12px; }
+
+    /* Gucci banner */
+    .gucci-content { z-index: 2; }
+    .gucci-left { flex: 1.2; display: flex; align-items: center; justify-content: center; }
+    .gucci-placeholder {
+      width: 160px;
+      height: 160px;
+      background: linear-gradient(135deg, #8b1a2f 0%, #c0392b 50%, #8b1a2f 100%);
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      gap: 6px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+    .gucci-logo { font-size: 18px; font-weight: 800; letter-spacing: 0.15em; }
+    .gucci-right { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 10px; padding-left: 16px; }
+    .gucci-title {
+      font-size: 20px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.2;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .gucci-sub { font-size: 12px; color: #d4c4b0; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+    .btn-buy-light { background: #fff; color: #1a1a1a; }
+    .btn-buy-light:hover { background: #f0f0f0; }
+    .gucci-decor {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 56px;
+      opacity: 0.15;
+    }
+
+    /* ── FLASH OFFERS BAR ── */
+    .flash-bar {
+      background: linear-gradient(90deg, #e05a00 0%, #f07820 100%);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 32px;
+    }
+    .flash-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .flash-bar-left .clock { font-size: 28px; }
+    .flash-bar-right-text {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.92;
+    }
+    .btn-flash {
+      border: 2px solid rgba(255,255,255,0.8);
+      background: transparent;
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .btn-flash:hover { background: rgba(255,255,255,0.15); }
+
+    /* ── LOEWE SECTION ── */
+    .loewe-section {
+      background: linear-gradient(90deg, #f5e8df 0%, #eeddd2 40%, #e8d5c8 100%);
+      padding: 40px 48px;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      min-height: 220px;
+    }
+    .loewe-brand {
+      font-size: 58px;
+      font-weight: 900;
+      color: #1a1a1a;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+    .loewe-product-mock {
+      width: 130px;
+      height: 160px;
+      background: linear-gradient(160deg, #8b6e4a 0%, #a07d55 50%, #6b4f30 100%);
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #f0e6d8;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      gap: 4px;
+      box-shadow: 12px 12px 32px rgba(100,70,40,0.25);
+      position: relative;
+    }
+    .loewe-product-label {
+      background: rgba(255,255,255,0.9);
+      color: #333;
+      padding: 6px 10px;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-align: center;
+      width: 80%;
+    }
+    .loewe-elixir { font-size: 9px; color: rgba(255,255,255,0.6); letter-spacing: 0.2em; }
+
+    /* ── FOOTER SPACER ── */
+    .footer-placeholder { height: 40px; background: #f8f8f8; border-top: 1px solid #eee; }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BANNER -->
+  <div class="top-banner">
+    <span>🎁</span>
+    <span><strong>¡Especial Papá!</strong> 🎁 Compra ahora y llévate un regalo. <a href="#">¡Descúbrelos aquí!</a></span>
+    <button class="close-btn">✕</button>
+  </div>
+
+  <!-- INFO BAR -->
+  <div class="info-bar">
+    <span>3€ por SUSCRIBIRTE*</span>
+    <span>ENVÍO GRATIS +49,99€</span>
+    <span>MUESTRAS GRATIS en tu pedido</span>
+    <span>ENVÍO 24-48H</span>
+  </div>
+
+  <!-- MAIN HEADER -->
+  <header class="main-header">
+    <!-- Search with class 'paco' -->
+    <div class="paco">
+      <input type="text" placeholder="Buscar un producto o marca" aria-label="Buscar" />
+      <button aria-label="Buscar">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- LOGO -->
+    <div class="logo">
+      <span class="circles">○○</span>a<span style="font-style:italic;">P</span>P<span style="letter-spacing:0.08em">ERFUMERÍAS</span>
+    </div>
+
+    <!-- RIGHT ACTIONS -->
+    <div class="header-actions">
+      <button class="btn-phone">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20 10.999h2C22 5.869 18.127 2 12.99 2v2C17.052 4 20 6.943 20 10.999z"/>
+          <path d="M13 8c2.103 0 3 .897 3 3h2c0-3.225-1.775-5-5-5v2zm3.422 5.443a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a1 1 0 0 0-.086-1.391l-3.064-2.696z"/>
+        </svg>
+        Tu pedido por teléfono
+      </button>
+      <a href="#" class="header-link">Tiendas</a>
+      <button class="icon-btn" aria-label="Mi cuenta">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+          <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.582-7 8-7s8 3 8 7"/>
+        </svg>
+      </button>
+      <button class="icon-btn" aria-label="Favoritos">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.501 5.501 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg>
+      </button>
+      <button class="icon-btn" aria-label="Cesta">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- NAV -->
+  <nav>
+    <ul>
+      <li class="flash"><a href="#">OFERTAS<br>FLASH</a></li>
+      <li class="flash-icon"><a href="#" style="padding: 0 4px; color:#e05a00;">⏱</a></li>
+      <li class="bags"><a href="#">BOLSOS<br>Y +</a></li>
+      <li class="marcas"><a href="#">MARCAS</a></li>
+      <li><a href="#">Perfumes</a></li>
+      <li><a href="#">Cosmética</a></li>
+      <li><a href="#">Maquillaje</a></li>
+      <li><a href="#">Hombre</a></li>
+      <li><a href="#">Cabello</a></li>
+      <li><a href="#">Corporales</a></li>
+      <li><a href="#">Solares</a></li>
+      <li><a href="#">Higiene</a></li>
+      <li><a href="#">Parafarmacia</a></li>
+      <li><a href="#">Bebé·Niño</a></li>
+      <li><a href="#">Hogar</a></li>
+      <li class="novedades"><a href="#">Novedades</a></li>
+      <li class="promociones"><a href="#">Promociones</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO BANNERS -->
+  <div class="hero-section">
+    <!-- Boss Banner -->
+    <div class="banner banner-boss">
+      <div class="banner-content">
+        <div class="banner-discount">-5€</div>
+        <div style="margin-top:6px;">
+          <div class="banner-text">
+            EN COMPRAS <span class="banner-text price-circle-wrap"><span class="price-circle">+49€</span></span>
+          </div>
+          <div class="banner-subtitle" style="margin-top:6px;">¡Sorprende a Papá!</div>
+        </div>
+        <div class="btn-buy-wrap">
+          <a href="#" class="btn-buy">Comprar</a>
+        </div>
+      </div>
+      <!-- Placeholder bottle silhouette -->
+      <div style="position:absolute;right:32px;top:0;height:100%;display:flex;align-items:center;z-index:1;">
+        <div style="width:80px;height:150px;background:linear-gradient(160deg,#1a1a1a 0%,#3a3a3a 40%,#222 100%);border-radius:6px 6px 10px 10px;box-shadow:0 8px 24px rgba(0,0,0,0.25);position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:12px;">
+          <div style="width:18px;height:22px;background:#2a2a2a;border-radius:4px 4px 0 0;margin-bottom:4px;"></div>
+          <div style="color:#c8a96e;font-size:9px;font-weight:800;letter-spacing:0.1em;text-align:center;margin-top:10px;">BOSS<br><span style="font-size:7px;opacity:0.7;font-weight:500;letter-spacing:0.2em;">THE SCENT</span></div>
+          <div style="position:absolute;bottom:16px;font-size:7px;color:rgba(255,255,255,0.4);letter-spacing:0.15em;text-transform:uppercase;">HUGO BOSS</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gucci Banner -->
+    <div class="banner banner-gucci">
+      <div class="gucci-left">
+        <div class="gucci-placeholder">
+          <div class="gucci-logo">GUCCI</div>
+          <div style="font-size:8px;opacity:0.7;letter-spacing:0.2em;">beauty</div>
+          <div style="width:70%;height:1px;background:rgba(255,255,255,0.3);margin:4px 0;"></div>
+          <div style="font-size:8px;opacity:0.5;letter-spacing:0.12em;">ESTUCHE REGALO</div>
+          <div style="display:flex;gap:6px;margin-top:8px;">
+            <div style="width:14px;height:40px;background:rgba(0,0,0,0.4);border-radius:3px;"></div>
+            <div style="width:14px;height:32px;background:rgba(0,0,0,0.3);border-radius:3px;align-self:flex-end;"></div>
+            <div style="width:14px;height:36px;background:rgba(0,0,0,0.35);border-radius:3px;align-self:flex-end;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="gucci-right">
+        <div class="gucci-title">ACIERTA 100%<br>CON UN<br><span style="color:#d4a843;">ESTUCHE REGALO</span></div>
+        <a href="#" class="btn-buy btn-buy-light">Comprar</a>
+      </div>
+      <div class="gucci-decor">🎁</div>
+    </div>
+  </div>
+
+  <!-- FLASH OFFERS BAR -->
+  <div class="flash-bar">
+    <div class="flash-bar-left">
+      <span class="clock">⏱</span>
+      <span>OFERTAS FLASH</span>
+    </div>
+    <div class="flash-bar-right-text">DESCUENTA ATRÁS</div>
+    <button class="btn-flash">Ver las ofertas de hoy</button>
+  </div>
+
+  <!-- LOEWE SECTION -->
+  <div class="loewe-section">
+    <div class="loewe-brand">LOEWE</div>
+    <div class="loewe-product-mock">
+      <div class="loewe-product-label">LOEWE<br>SOLO</div>
+      <div class="loewe-elixir" style="margin-top:8px;color:rgba(240,230,216,0.7);font-size:8px;letter-spacing:0.2em;">Elixir</div>
+    </div>
+  </div>
+
+  <div class="footer-placeholder"></div>
+
+  <script>
+    document.querySelector('.close-btn').addEventListener('click', function() {
+      this.closest('.top-banner').style.display = 'none';
+    });
+  </script>
+</body>
+</html>
